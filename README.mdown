@@ -1,0 +1,13 @@
+Dead simple JSONP proxy server running on [Rack](http://rack.rubyforge.org). It turns JSON responses from any server to JSONP format.
+
+Configuration
+-------------
+
+All you have to do is to set the proper endpoint url in `config.ru` file:
+
+    config['proxy.to'] = 'http://yourhost.com'
+
+Usage
+-----
+
+For example, if you want to turn the JSON contents from the url **http://www.myhost.com/foo/bar.json** to JSONP format, set the **proxy.to** configuration parameter to **http://www.myhost.com**. Launch this proxy server with `rackup config.ru` and fetch the JSONP contents from **http://localhost:9292/foo/bar.json?callback=?**
